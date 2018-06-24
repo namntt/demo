@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" 
+  "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<!-- Base Definition -->
+	<definition name="base.definition" template="/view/layouts/base-layout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="jsDefault" value="" />
+		<put-attribute name="cssDefault" value="" />
+		<put-attribute name="header" value="/view/layouts/header.jsp" />
+		<put-attribute name="screenname" value="" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="jsAdd" value="" />
+		<put-attribute name="cssAdd" value="" />
+		<put-attribute name="footer" value="/view/layouts/footer.jsp" />
+	</definition>
+
+	<!-- page errors common -->
+	<definition name="acessdeneid" extends="base.definition">
+		<put-attribute name="title" value="Access denied!" />
+		<put-attribute name="screenname" value="Access denied" />
+		<put-attribute name="content" value="/view/errors/403.jsp" />
+		<put-list-attribute name="cssDefault">
+			<add-attribute value="/assets/css/bootstrap.min.css" />
+		</put-list-attribute>
+		<put-list-attribute name="jsDefault">
+			<add-attribute value="/assets/js/jquery-1.11.1.min.js" />
+			<add-attribute value="/assets/js/bootstrap.min.js" />
+		</put-list-attribute>
+	</definition>
+
+	<!-- list users -->
+	<definition name="index" extends="base.definition">
+		<put-attribute name="title" value="List" />
+		<put-attribute name="screenname" value="List Developers" />
+		<put-attribute name="body" value="/view/users/index.jsp" />
+		<put-list-attribute name="cssDefault">
+			<add-attribute value="/assets/css/bootstrap.min.css" />
+		</put-list-attribute>
+		<put-list-attribute name="cssAdd">
+			<add-attribute value="/assets/css/custom.css" />
+		</put-list-attribute>
+		<put-list-attribute name="jsDefault">
+			<add-attribute value="/assets/js/jquery-1.11.1.min.js" />
+			<add-attribute value="/assets/js/bootstrap.min.js" />
+		</put-list-attribute>
+		<put-list-attribute name="jsAdd">
+			<add-attribute value="/assets/js/custom.js" />
+		</put-list-attribute>
+	</definition>
+</tiles-definitions>

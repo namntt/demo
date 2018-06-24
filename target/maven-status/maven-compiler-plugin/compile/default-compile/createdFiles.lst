@@ -1,0 +1,6 @@
+com/framgia/service/impl/UserServiceImpl.class
+com/framgia/dao/impl/UserDAOImpl.class
+com/framgia/dao/UserDAO.class
+com/framgia/action/UserAction.class
+com/framgia/model/User.class
+com/framgia/service/UserService.class
