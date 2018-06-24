@@ -21,7 +21,7 @@
 			</div>
 			<div>
 				<s:form action="list" method="get">
-					<s:textfield name="keyWord"></s:textfield>
+					<s:textfield name="searchKeyword"></s:textfield>
 					<s:submit value="search"></s:submit>
 				</s:form>
 			</div>

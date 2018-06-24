@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.framgia.dao.UserDAO;
 import com.framgia.model.User;
+import com.framgia.search.SearchUser;
 import com.framgia.service.UserService;
 
 public class UserServiceImpl implements UserService {
@@ -13,9 +14,12 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	@Transactional
-	public List<User> getUsers(String username) {
+	public List<User> getUsers(SearchUser searchUser) {
+		int totalPage = (int) Math.ceil(countUser(searchUser) / (double) searchUser.getPageSize());
+		searchUser.setTotalPage(totalPage > 0 ? totalPage : 0);
 		try {
-			return getUserDAO().getUsers(username);
+			
+			return getUserDAO().getUsers(searchUser);
 		} catch (Exception e) {
 			throw e;
 		}
@@ -57,6 +61,12 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		getUserDAO().updateUser(user);
 		
+	}
+
+	@Override
+	public Long countUser(SearchUser searchUser) {
+		// TODO Auto-generated method stub
+		return getUserDAO().countUser(searchUser);
 	}
 	
 	
